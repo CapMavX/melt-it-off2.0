@@ -82,6 +82,7 @@ a {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 24px; /* Establish 24px side gutters to keep content from touching screen edges on mobile */
 }
 
 /* Badges */
