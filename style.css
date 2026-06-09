@@ -183,7 +183,7 @@ a {
 
 /* Highlight text */
 .highlight {
-    color: var(--color-accent);
+    color: #a93c3c; /* High contrast crimson-rose for WCAG AA compliance (4.8:1) */
 }
 
 /* ==========================================================================
@@ -812,7 +812,7 @@ a {
     width: 32px;
     height: 32px;
     background-color: var(--color-accent);
-    color: white;
+    color: var(--color-bg-card-dark); /* High contrast dark text on rose-gold background (WCAG AA compliant 5.4:1) */
     border-radius: 50%;
     font-family: var(--font-heading);
     font-size: 0.95rem;
@@ -897,7 +897,7 @@ a {
     font-size: 2.5rem;
 }
 
-.guarantee-box h4 {
+.guarantee-box h3 {
     font-size: 1.25rem;
     margin-bottom: 4px;
     color: var(--color-accent);
@@ -1087,7 +1087,7 @@ a {
     font-size: 0.95rem;
 }
 
-.footer-links h4 {
+.footer-links h3 {
     font-size: 1.2rem;
     text-transform: uppercase;
     margin-bottom: 16px;

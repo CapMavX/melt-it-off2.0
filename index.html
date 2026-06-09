@@ -19,10 +19,16 @@
     <!-- Preconnect to Google Fonts for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Non-render-blocking Google Fonts loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css?v=1.1.7">
+    <link rel="stylesheet" href="style.min.css?v=1.1.7">
 </head>
 <body>
 
@@ -123,7 +129,7 @@
 
                 <div class="hero-visual">
                     <div class="book-container">
-                        <img src="WhatsApp Image 2026-06-06 at 4.12.23 PM.jpeg" alt="Melt It Off Book Cover" class="book-cover" fetchpriority="high">
+                        <img src="WhatsApp Image 2026-06-06 at 4.12.23 PM.jpeg" alt="Melt It Off Book Cover" class="book-cover" fetchpriority="high" width="1080" height="620">
                         <div class="book-shadow"></div>
                     </div>
                 </div>
@@ -176,7 +182,7 @@
                             <span class="stats-num">10</span>
                             <span class="stats-label">Days to Reset</span>
                         </div>
-                        <img src="WhatsApp Image 2026-06-06 at 4.12.23 PM.jpeg" alt="Melt It Off Blueprint Mockup" class="solution-img" loading="lazy">
+                        <img src="WhatsApp Image 2026-06-06 at 4.12.23 PM.jpeg" alt="Melt It Off Blueprint Mockup" class="solution-img" loading="lazy" width="1080" height="620">
                     </div>
                 </div>
 
@@ -226,13 +232,13 @@
                     <!-- Testimonial 1 -->
                     <div class="testimonial-card-premium">
                         <div class="screenshot-container">
-                            <img src="WhatsApp Image 2026-06-06 at 2.14.31 PM.jpeg" alt="WhatsApp Testimonial Aisha" class="testimonial-img" loading="lazy">
+                            <img src="WhatsApp Image 2026-06-06 at 2.14.31 PM.jpeg" alt="WhatsApp Testimonial Aisha" class="testimonial-img" loading="lazy" width="499" height="1080">
                         </div>
                         <div class="testimonial-info">
                             <div class="user-meta">
                                 <div class="avatar-circle" style="background: #25d366; color: white;">A</div>
                                 <div>
-                                    <h4 class="user-name">Aisha</h4>
+                                    <h3 class="user-name">Aisha</h3>
                                     <span class="user-tag">Verified Buyer</span>
                                 </div>
                             </div>
@@ -246,13 +252,13 @@
                     <!-- Testimonial 2 -->
                     <div class="testimonial-card-premium">
                         <div class="screenshot-container">
-                            <img src="WhatsApp Image 2026-06-06 at 2.14.37 PM.jpeg" alt="WhatsApp Testimonial Chioma" class="testimonial-img" loading="lazy">
+                            <img src="WhatsApp Image 2026-06-06 at 2.14.37 PM.jpeg" alt="WhatsApp Testimonial Chioma" class="testimonial-img" loading="lazy" width="499" height="1080">
                         </div>
                         <div class="testimonial-info">
                             <div class="user-meta">
                                 <div class="avatar-circle" style="background: #25d366; color: white;">C</div>
                                 <div>
-                                    <h4 class="user-name">Chioma</h4>
+                                    <h3 class="user-name">Chioma</h3>
                                     <span class="user-tag">Verified Buyer</span>
                                 </div>
                             </div>
@@ -341,7 +347,7 @@
                             <div class="guarantee-box">
                                 <div class="guarantee-icon">🛡️</div>
                                 <div>
-                                    <h4>30-Day Money-Back Guarantee</h4>
+                                    <h3>30-Day Money-Back Guarantee</h3>
                                     <p>Try it risk-free. If you don't feel lighter and less bloated in 10 days, get a 100% immediate refund.</p>
                                 </div>
                             </div>
@@ -444,7 +450,7 @@
             </div>
             
             <div class="footer-links">
-                <h4>Support</h4>
+                <h3>Support</h3>
                 <p>Have questions? Contact us at: <strong>capmavx@gmail.com</strong></p>
                 <div class="footer-nav">
                     <a href="#">Privacy Policy</a>
@@ -473,6 +479,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>
