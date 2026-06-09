@@ -589,6 +589,7 @@ a {
 
 .solution-img {
     width: 100%;
+    height: auto;
     border-radius: var(--border-radius-md);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
