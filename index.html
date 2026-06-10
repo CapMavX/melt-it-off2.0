@@ -20,15 +20,99 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Non-render-blocking Google Fonts loading -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <!-- Optimized, Asynchronous Google Fonts Loading (slimmed down weights) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;600;700&display=swap">
     </noscript>
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.min.css?v=1.1.7">
+    <!-- Preload critical LCP Hero Image -->
+    <link rel="preload" href="WhatsApp Image 2026-06-06 at 4.12.23 PM.jpeg" as="image" fetchpriority="high">
+
+    <!-- Critical CSS to render above-the-fold content immediately -->
+    <style id="critical-css">
+        :root {
+            --color-bg-body: #fffbf9;
+            --color-bg-card-dark: #3a1c22;
+            --color-bg-card-light: #ffffff;
+            --color-accent: #e88b8b;
+            --color-accent-hover: #d27777;
+            --color-text-dark: #201013;
+            --color-text-light: #ffffff;
+            --color-text-gray: #6e5e60;
+            --color-border: #f5eae8;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --border-radius-lg: 32px;
+            --border-radius-md: 16px;
+            --border-radius-sm: 8px;
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow-premium: 0 20px 40px rgba(58, 28, 34, 0.05);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body {
+            background-color: var(--color-bg-body);
+            color: var(--color-text-dark);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding: 118px 12px 12px;
+        }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.1; }
+        p { font-family: var(--font-body); color: var(--color-text-gray); }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; }
+        .badge {
+            display: inline-block; padding: 6px 14px; background-color: rgba(58, 28, 34, 0.06);
+            color: var(--color-text-dark); border-radius: 100px; font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; margin-bottom: 20px;
+        }
+        .hero-content .badge { background-color: rgba(255, 255, 255, 0.1); color: var(--color-text-light); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px;
+            border-radius: 100px; font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+            cursor: pointer; transition: var(--transition-smooth); border: none; outline: none; text-align: center;
+        }
+        .btn-primary { background-color: var(--color-accent); color: var(--color-bg-card-dark); }
+        .announcement-bar { background-color: var(--color-bg-card-dark); color: var(--color-text-light); text-align: center; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; }
+        .main-header { background-color: rgba(255, 251, 249, 0.95); backdrop-filter: blur(15px); position: fixed; top: 0; left: 0; width: 100%; z-index: 100; border-bottom: 1px solid var(--color-border); }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+        .logo { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-dark); }
+        .logo-icon { width: 24px; height: 24px; color: var(--color-accent); }
+        .desktop-nav { display: flex; gap: 32px; }
+        .desktop-nav a { font-size: 0.95rem; font-weight: 500; color: var(--color-text-gray); }
+        .hero-section { padding: 40px 0; }
+        .hero-container {
+            background-color: var(--color-bg-card-dark); color: var(--color-text-light); border-radius: var(--border-radius-lg);
+            padding: 80px 60px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; overflow: hidden; position: relative;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-title { font-size: 3rem; margin-bottom: 24px; line-height: 1.2; }
+        .hero-subtitle { font-size: 1.15rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 40px; max-width: 550px; }
+        .hero-visual { display: flex; justify-content: center; align-items: center; }
+        .book-container { position: relative; width: 100%; max-width: 380px; }
+        .book-cover { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 15px 35px rgba(0,0,0,0.3); transform: perspective(1000px) rotateY(-8deg) rotateX(5deg); }
+        @media (max-width: 1024px) {
+            .hero-container { padding: 60px 40px; gap: 40px; }
+            .hero-title { font-size: 3.2rem; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 4px; }
+            .desktop-nav { display: none; }
+            .mobile-menu-toggle { display: flex; }
+            .hero-container { grid-template-columns: 1fr; padding: 40px 24px; border-radius: var(--border-radius-md); gap: 32px; }
+            .hero-title { font-size: 2rem; text-align: center; }
+            .hero-subtitle { font-size: 1.05rem; text-align: center; }
+            .hero-visual { order: -1; }
+            .book-container { max-width: 260px; }
+        }
+    </style>
+
+    <!-- Asynchronously load the remaining non-critical styles -->
+    <link rel="preload" href="style.min.css?v=1.2.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.min.css?v=1.2.0"></noscript>
 </head>
 <body>
 
