@@ -173,4 +173,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
         lazyImages.forEach(image => imageObserver.observe(image));
     }
+
+    // ==========================================================================
+    // MOBILE SLIDERS (DOTS SYNCHRONIZATION)
+    // ==========================================================================
+    function setupSliderDots(sliderId, dotsContainerId) {
+        const slider = document.getElementById(sliderId);
+        const dotsContainer = document.getElementById(dotsContainerId);
+        if (!slider || !dotsContainer) return;
+
+        const dots = dotsContainer.querySelectorAll('.dot');
+        
+        slider.addEventListener('scroll', () => {
+            const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+            dots.forEach((dot, idx) => {
+                if (idx === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                slider.scrollTo({
+                    left: index * slider.offsetWidth,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    }
+
+    setupSliderDots('resultsSlider', 'resultsDots');
+    setupSliderDots('testimonialsSlider', 'testimonialsDots');
+
+    // ==========================================================================
+    // TESTIMONIAL LIGHTBOX MODAL
+    // ==========================================================================
+    const modal = document.getElementById('screenshot-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeModal = document.querySelector('.modal-close');
+    const screenshotContainers = document.querySelectorAll('.screenshot-container');
+
+    screenshotContainers.forEach(container => {
+        container.addEventListener('click', () => {
+            const img = container.querySelector('img');
+            if (!img || !modal || !modalImg) return;
+            modal.classList.add('open');
+            modalImg.src = img.src;
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    if (closeModal && modal) {
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });
